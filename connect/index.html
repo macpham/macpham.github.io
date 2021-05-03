@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Fake Authorization Page - Post Message Test</title>
+    <title>GitHub App User Authorization</title>
     <style>
       html, body {
         display: flex;
@@ -13,22 +13,16 @@
       }
     </style>
     <script>
-      const data = {
-        authorized: true
-      };
-
+      const authorized = "<%= @status %>" === "OK";
+      const data = { authorized };
       let count = 4;
 
       const interval = setInterval(() => {
         count--;
-        document.getElementById("countdown").textContent = count;
         if (count === 0) {
           clearInterval(interval);
-          document.getElementById("countdown").textContent = "✅ Authorized";
           if (window.opener) {
-            console.log('Sending a message!');
             window.opener.postMessage(data, '*');
-            // My work here is done 👋
             window.close();
           } else {
             console.log('Countdown over but opener window to send message to!');
@@ -38,6 +32,6 @@
     </script>
   </head>
   <body>
-    <h1 id='countdown'>4<h1>
+    <h1 id='countdown'>✅ Authorized<h1>
   </body>
 </html>
