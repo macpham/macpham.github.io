@@ -16,21 +16,14 @@
       // const authorized = "<%= @status %>" === "OK";
       const authorized = true;
       const data = { authorized: authorized };
-      let count = 4;
 
-      const interval = setInterval(() => {
-        count--;
-        if (count === 0) {
-          clearInterval(interval);
-          if (window.opener) {
-            console.log('Sending message with data: ', data);
-            window.opener.postMessage(data, '*');
-            // window.close();
-          } else {
-            console.log('Countdown over but opener window to send message to!');
-          }
-        }
-      }, 1000);
+      if (window.opener) {
+        console.log('Sending message with data: ', data);
+        window.opener.postMessage(data, '*');
+        // window.close();
+      } else {
+        console.log('Countdown over but opener window to send message to!');
+      }
     </script>
   </head>
   <body>
