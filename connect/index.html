@@ -15,7 +15,7 @@
     <script>
       // const authorized = "<%= @status %>" === "OK";
       const authorized = true;
-      const data = { authorized };
+      const data = { authorized: authorized };
       let count = 4;
 
       const interval = setInterval(() => {
@@ -23,8 +23,9 @@
         if (count === 0) {
           clearInterval(interval);
           if (window.opener) {
+            console.log('Sending message with data: ', data);
             window.opener.postMessage(data, '*');
-            window.close();
+            // window.close();
           } else {
             console.log('Countdown over but opener window to send message to!');
           }
