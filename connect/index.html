@@ -27,6 +27,8 @@
           if (window.opener) {
             console.log('sending a message!');
             window.opener.postMessage(data, '*');
+            // My work here is done 👋
+            window.close();
           } else {
             console.log('countdown over but opener window to send message to!');
           }
