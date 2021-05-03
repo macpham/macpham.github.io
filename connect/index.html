@@ -18,9 +18,8 @@
       const data = { authorized: authorized };
 
       if (window.opener) {
-        console.log('Sending message with data: ', data);
         window.opener.postMessage(data, '*');
-        // window.close();
+        window.close();
       } else {
         console.log('No opener window to send message to!');
       }
