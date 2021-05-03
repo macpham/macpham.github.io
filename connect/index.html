@@ -9,7 +9,7 @@
         height: 100%;
         width: 100%;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: 24px;
+        font-size: 48px;
       }
     </style>
     <script>
@@ -17,11 +17,11 @@
         authorized: true
       };
 
-      let count = 5;
+      let count = 3;
 
       const interval = setInterval(() => {
         count--;
-        document.getElementById("countdown").innerHTML = count;
+        document.getElementById("countdown").textContent = count;
         if (count === 0) {
           clearInterval(interval);
           if (window.opener) {
@@ -37,6 +37,6 @@
     </script>
   </head>
   <body>
-    <h1 id='countdown'>5<h1>
+    <h1 id='countdown'>✅ Authorized<h1>
   </body>
 </html>
